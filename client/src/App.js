@@ -10,22 +10,65 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
+import PageWrapper from "./components/PageWrapper"; 
 
 function App() {
   return (
     <Router>
       <Header />
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/products"
+          element={
+            <PageWrapper>
+              <Products />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={
+            <PageWrapper>
+              <ProductDetails />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PageWrapper>
+              <Cart />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PageWrapper>
+              <Checkout />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PageWrapper>
+              <Login />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PageWrapper>
+              <Register />
+            </PageWrapper>
+          }
+        />
+      </Routes>
+
       <Footer />
     </Router>
   );
